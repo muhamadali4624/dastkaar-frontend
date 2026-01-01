@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const wallets = [
-  { id: 1, name: "Honey Oak", price: "From 4000", img: "/images/wallet1_main.jpg" },
+  { id: 1, name: "Honey Oak", price: "From 4000", img: "C:\Users\dell\Desktop\Dastkaar\dastkaar-frontend\public\images\wallet1_main.jpg" },
   { id: 2, name: "Old Brew", price: "From 4000", img: "/images/wallet2_main.jpg" },
   { id: 3, name: "Obsidian Black", price: "From 4000", img: "/images/wallet3_main.jpg" },
   { id: 4, name: "The Lefty", price: "From 4000", img: "/images/wallet4_main.jpg" },
