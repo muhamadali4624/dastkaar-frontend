@@ -123,7 +123,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
                 <img src={`images/wallet${id}_side.jpg`} className="img-fluid" alt="Side View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Side+View"; }} />
               </div>
               <div className="col-6">
-                <img src={`/src/assets/images/wallet${id}_inside.jpg`} className="img-fluid" alt="Inside View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Inside+View"; }} />
+                <img src={`images/wallet${id}_inside.jpg`} className="img-fluid" alt="Inside View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Inside+View"; }} />
               </div>
             </div>
           </div>
