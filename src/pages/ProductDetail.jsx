@@ -24,12 +24,12 @@ function ProductDetail() {
   let productTitle = "Dastkaar Edition";
   let fixedColor = "";
 
-  if (id === '1') { productTitle = "Dastkaar Signature Wallet"; fixedColor = "Honey Oak"; }
-  else if (id === '2') { productTitle = "Dastkaar Signature Wallet"; fixedColor = "Old Brew"; }
-  else if (id === '3') { productTitle = "Dastkaar Signature Wallet"; fixedColor = "Obsidian Black"; }
+  if (id === '1') { productTitle = "Honey Oak Classic"; fixedColor = "Honey Oak"; }
+  else if (id === '2') { productTitle = "Old Brew Classic"; fixedColor = "Old Brew"; }
+  else if (id === '3') { productTitle = "Obsidian Black Classic"; fixedColor = "Obsidian Black"; }
   else if (id === '4') { productTitle = "Lefty Series"; }
-  else if (id === '5') { productTitle = " The Vault Edition"; }
-  else if (id === '6') { productTitle = "Dastkaar Custom Build"; }
+  else if (id === '5') { productTitle = "Flapper Edition"; }
+  else if (id === '6') { productTitle = "Dastkaar Vault (Custom)"; }
 
   useEffect(() => {
     if (fixedColor) { setWalletColor(fixedColor); }
