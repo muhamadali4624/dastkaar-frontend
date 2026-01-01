@@ -112,7 +112,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
         <div className="col-md-6">
           <div className="card shadow-sm border-0 mb-4">
             <img 
-              src={`images/wallet${id}_main.jpg`} 
+              src={`/images/wallet${id}_main.jpg`} 
               className="img-fluid rounded-top" 
               alt={productTitle}
               style={{ height: '400px', objectFit: 'cover' }}
@@ -120,10 +120,10 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
             />
             <div className="d-flex border-top">
               <div className="col-6 border-end">
-                <img src={`images/wallet${id}_side.jpg`} className="img-fluid" alt="Side View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Side+View"; }} />
+                <img src={`/images/wallet${id}_side.jpg`} className="img-fluid" alt="Side View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Side+View"; }} />
               </div>
               <div className="col-6">
-                <img src={`images/wallet${id}_inside.jpg`} className="img-fluid" alt="Inside View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Inside+View"; }} />
+                <img src={`/images/wallet${id}_inside.jpg`} className="img-fluid" alt="Inside View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Inside+View"; }} />
               </div>
             </div>
           </div>
@@ -248,8 +248,8 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
     {/* First Video */}
     <div className="col-md-6">
       <div className="ratio ratio-16x9 shadow-sm rounded overflow-hidden text-center bg-light">
-        <video controls poster={`images/thumb.jpeg`}>
-          <source src={`videos/video3.mp4`} type="video/mp4" />
+        <video controls poster={`/images/thumb.jpeg`}>
+          <source src={`/videos/video3.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -258,8 +258,8 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
     {/* Second Video */}
     <div className="col-md-6">
       <div className="ratio ratio-16x9 shadow-sm rounded overflow-hidden text-center bg-light">
-        <video controls poster={`images/wallet4_side.jpg`}>
-          <source src={`videos/video2.mp4`} type="video/mp4" />
+        <video controls poster={`/images/wallet4_side.jpg`}>
+          <source src={`/videos/video2.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
