@@ -4,7 +4,7 @@ body {
   padding: 0;
   font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
   /* Add your background image here */
-  background-image: url('images/about1.jpg'); 
+  background-image: url('/images/about1.jpg'); 
   background-attachment: fixed;
   background-size: cover;
   background-color: #f8f5f0; /* Fallback creamy color */
