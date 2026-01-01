@@ -49,7 +49,7 @@ function About() {
       {/* Final Image Banner */}
       <div className="mt-5">
          <img 
-            src="/src/assets/images/about2.jpg" 
+            src="images/about2.jpg" 
             className="img-fluid w-100 rounded shadow" 
             style={{maxHeight: '400px', objectFit: 'cover'}}
             alt="Tools" 
