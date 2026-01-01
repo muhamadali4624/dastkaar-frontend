@@ -61,6 +61,7 @@ const validateForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+ 
 
   // --- 5. FINALIZE ORDER (THE FIXED PART) ---
   const finalizeOrder = () => {
@@ -102,6 +103,22 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
       alert("❌ Submission Failed. Make sure Laravel is running!");
     });
   };
+
+  const orderViaWhatsApp = () => {
+  // We can skip validateForm here if you want them to just chat, 
+  // or keep it if you want their details first.
+  
+  const message = `*INQUIRY - DASTKAAR*%0A` +
+    `--------------------------%0A` +
+    `*Product:* ${productTitle}%0A` +
+    `*Color:* ${walletColor}%0A` +
+    `*Price:* ${totalPrice} PKR%0A` +
+    `--------------------------%0A` +
+    `I am interested in this wallet. Please guide me on the next steps!`;
+
+  const phoneNumber = "923483877125"; //
+  window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+};
 
   return (
 
@@ -231,11 +248,20 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
     <br />
 
   <button 
-    className="btn btn-warning w-100 fw-bold py-3 text-uppercase shadow-sm" 
-    onClick={() => setShowModal(true)}
-  >
-    Confirm Order
-  </button>
+  className="btn btn-warning w-100 fw-bold py-3 text-uppercase shadow-sm mb-2" 
+  onClick={() => setShowModal(true)}
+>
+  Confirm Order
+</button>
+
+{/* NEW WhatsApp Button right underneath */}
+<button 
+  className="btn btn-success w-100 fw-bold py-3 text-uppercase shadow-sm d-flex align-items-center justify-content-center gap-2" 
+  style={{ backgroundColor: '#25D366', border: 'none' }}
+  onClick={orderViaWhatsApp}
+>
+  <i className="bi bi-whatsapp"></i> Order via WhatsApp
+</button>
 </div>
         </div>
       </div>
@@ -345,9 +371,28 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
                   <strong>PAYMENT:</strong> EasyPaisa / Nayapay: 03483877125 (Muhammad Ali)
                 </div>
               </div>
-              <div className="modal-footer bg-light">
-                <button className="btn btn-dark w-100 py-3 fw-bold" onClick={finalizeOrder}>CONFIRM ORDER ({totalPrice} PKR)</button>
-              </div>
+              <div className="modal-footer bg-light d-flex flex-column">
+  {/* Database Button */}
+  <button 
+    className="btn btn-dark w-100 py-3 fw-bold mb-2" 
+    onClick={finalizeOrder}
+  >
+    CONFIRM ORDER ({totalPrice} PKR)
+  </button>
+
+  {/* WhatsApp Button (Directly Underneath) */}
+  <button 
+    className="btn btn-success w-100 py-3 fw-bold d-flex align-items-center justify-content-center gap-2" 
+    style={{ backgroundColor: '#25D366', border: 'none' }}
+    onClick={orderViaWhatsApp}
+  >
+    <i className="bi bi-whatsapp"></i> ORDER VIA WHATSAPP
+  </button>
+  
+  <p className="text-muted small mt-2 text-center">
+    Choose WhatsApp for faster custom engraving discussion!
+  </p>
+</div>
             </div>
           </div>
         </div>
