@@ -24,12 +24,12 @@ function ProductDetail() {
   let productTitle = "Dastkaar Edition";
   let fixedColor = "";
 
-  if (id === '1') { productTitle = "Honey Oak Classic"; fixedColor = "Honey Oak"; }
-  else if (id === '2') { productTitle = "Old Brew Classic"; fixedColor = "Old Brew"; }
-  else if (id === '3') { productTitle = "Obsidian Black Classic"; fixedColor = "Obsidian Black"; }
+  if (id === '1') { productTitle = "Dastkaar Signature Wallet"; fixedColor = "Honey Oak"; }
+  else if (id === '2') { productTitle = "Dastkaar Signature Wallet"; fixedColor = "Old Brew"; }
+  else if (id === '3') { productTitle = "Dastkaar Signature Wallet"; fixedColor = "Obsidian Black"; }
   else if (id === '4') { productTitle = "Lefty Series"; }
-  else if (id === '5') { productTitle = "Flapper Edition"; }
-  else if (id === '6') { productTitle = "Dastkaar Vault (Custom)"; }
+  else if (id === '5') { productTitle = " The Vault Edition"; }
+  else if (id === '6') { productTitle = "Dastkaar Custom Build"; }
 
   useEffect(() => {
     if (fixedColor) { setWalletColor(fixedColor); }
@@ -112,7 +112,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
         <div className="col-md-6">
           <div className="card shadow-sm border-0 mb-4">
             <img 
-              src={`/src/assets/images/wallet${id}_main.jpg`} 
+              src={`images/wallet${id}_main.jpg`} 
               className="img-fluid rounded-top" 
               alt={productTitle}
               style={{ height: '400px', objectFit: 'cover' }}
@@ -120,10 +120,10 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
             />
             <div className="d-flex border-top">
               <div className="col-6 border-end">
-                <img src={`/src/assets/images/wallet${id}_side.jpg`} className="img-fluid" alt="Side View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Side+View"; }} />
+                <img src={`images/wallet${id}_side.jpg`} className="img-fluid" alt="Side View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Side+View"; }} />
               </div>
               <div className="col-6">
-                <img src={`/src/assets/images/wallet${id}_inside.jpg`} className="img-fluid" alt="Inside View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Inside+View"; }} />
+                <img src={`images/wallet${id}_inside.jpg`} className="img-fluid" alt="Inside View" onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Inside+View"; }} />
               </div>
             </div>
           </div>
@@ -140,7 +140,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
             <div className="mb-4 p-3 border border-warning rounded bg-light">
               <h4 className="fw-bold text-dark">🛠️ CUSTOMIZE YOUR WALLET</h4>
               <label className="form-label fw-bold">Enter Name for Laser Engraving:</label>
-              <input type="text" className="form-control border-dark" placeholder="AHMAD KHAN" value={laserText} onChange={(e) => setLaserText(e.target.value)} />
+              <input type="text" className="form-control border-dark" placeholder="Sudais Ahmed" value={laserText} onChange={(e) => setLaserText(e.target.value)} />
             </div>
           )}
 
@@ -248,8 +248,8 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
     {/* First Video */}
     <div className="col-md-6">
       <div className="ratio ratio-16x9 shadow-sm rounded overflow-hidden text-center bg-light">
-        <video controls poster={`/src/assets/images/thumb.jpeg`}>
-          <source src={`/src/assets/videos/video3.mp4`} type="video/mp4" />
+        <video controls poster={`images/thumb.jpeg`}>
+          <source src={`videos/video3.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -258,8 +258,8 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
     {/* Second Video */}
     <div className="col-md-6">
       <div className="ratio ratio-16x9 shadow-sm rounded overflow-hidden text-center bg-light">
-        <video controls poster={`/src/assets/images/wallet4_side.jpg`}>
-          <source src={`/src/assets/videos/video2.mp4`} type="video/mp4" />
+        <video controls poster={`images/wallet4_side.jpg`}>
+          <source src={`videos/video2.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -342,7 +342,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
                 </div>
                 
                 <div className="p-3 bg-white border border-warning small">
-                  <strong>PAYMENT:</strong> EasyPaisa /Nayapay: 03483877125 (Muhammad Ali)
+                  <strong>PAYMENT:</strong> EasyPaisa / Nayapay: 03483877125 (Muhammad Ali)
                 </div>
               </div>
               <div className="modal-footer bg-light">
