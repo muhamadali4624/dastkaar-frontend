@@ -100,7 +100,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
     })
     .catch(err => {
       console.error("Database Error:", err);
-      alert("❌ Submission Failed. Make sure Laravel is running!");
+      alert("❌ Submission Failed!");
     });
   };
 
@@ -116,7 +116,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
     `--------------------------%0A` +
     `I am interested in this wallet. Please guide me on the next steps!`;
 
-  const phoneNumber = "923483877125"; //
+  const phoneNumber = "923348919487"; //
   window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
 };
 
@@ -390,7 +390,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
   </button>
   
   <p className="text-muted small mt-2 text-center">
-    Choose WhatsApp for faster custom engraving discussion!
+    Choose WhatsApp If Submission Failed
   </p>
 </div>
             </div>
