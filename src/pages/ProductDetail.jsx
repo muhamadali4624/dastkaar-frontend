@@ -112,7 +112,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
         <div className="col-md-6">
           <div className="card shadow-sm border-0 mb-4">
             <img 
-              src={`images\wallet${id}_main.jpg`} 
+              src={`images/wallet${id}_main.jpg`} 
               className="img-fluid rounded-top" 
               alt={productTitle}
               style={{ height: '400px', objectFit: 'cover' }}
