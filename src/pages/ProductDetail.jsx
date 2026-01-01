@@ -259,7 +259,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
     <div className="col-md-6">
       <div className="ratio ratio-16x9 shadow-sm rounded overflow-hidden text-center bg-light">
         <video controls poster={`/src/assets/images/wallet4_side.jpg`}>
-          <source src={`C:\Users\dell\Desktop\Dastkaar\dastkaar-frontend\public\videos\video2.mp4`} type="video/mp4" />
+          <source src={`public/videos/video2.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
