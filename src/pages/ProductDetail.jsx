@@ -112,7 +112,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
         <div className="col-md-6">
           <div className="card shadow-sm border-0 mb-4">
             <img 
-              src={`src/assets/images/wallet${id}_main.jpg`} 
+              src={`/src/assets/images/wallet${id}_main.jpg`} 
               className="img-fluid rounded-top" 
               alt={productTitle}
               style={{ height: '400px', objectFit: 'cover' }}
@@ -259,7 +259,7 @@ wallet_type: id === '5' ? `${productTitle} (${handOrientation})` : productTitle,
     <div className="col-md-6">
       <div className="ratio ratio-16x9 shadow-sm rounded overflow-hidden text-center bg-light">
         <video controls poster={`/src/assets/images/wallet4_side.jpg`}>
-          <source src={`/videos/video2.mp4`} type="video/mp4" />
+          <source src={`/src/assets/videos/video2.mp4`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
