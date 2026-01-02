@@ -130,3 +130,6 @@ h1, h2, h3 {
 .text-gold {
   color: #d4af37;
 }
+.product-hover-zoom:hover {
+  transform: scale(1.05); /* Slight zoom in */
+}

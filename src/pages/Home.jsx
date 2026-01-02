@@ -19,11 +19,24 @@ function Home() {
         {wallets.map(w => (
           <div className="col-md-4 mb-4" key={w.id}>
             <div className="card border-0 shadow-sm h-100">
-              <img src={w.img} className="card-img-top" alt={w.name} style={{height: '250px', objectFit: 'cover'}} />
+              {/* CLICKABLE IMAGE */}
+              <Link to={`/product/${w.id}`}>
+                <img 
+                  src={w.img} 
+                  className="card-img-top product-img" 
+                  alt={w.name} 
+                  style={{
+                    height: '250px', 
+                    objectFit: 'cover',
+                    transition: 'transform 0.3s ease' // Smooth zoom effect
+                  }} 
+                />
+              </Link>
+              {/* <img src={w.img} className="card-img-top" alt={w.name} style={{height: '250px', objectFit: 'cover'}} /> */}
               <div className="card-body text-center">
                 <h5 className="fw-bold">{w.name}</h5>
                 <p className="text-muted">{w.price} Rs</p>
-                <Link to={`/product/${w.id}`} className="btn btn-dark w-100">View Details</Link>
+                <Link to={`/product/${w.id}`} className="btn btn-dark w-100">Buy Now</Link>
               </div>
             </div>
           </div>
