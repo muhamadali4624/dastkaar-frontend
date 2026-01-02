@@ -2,13 +2,13 @@ import { Link, useLocation } from 'react-router-dom';
 
 function Success() {
   const location = useLocation();
-  // Check if the user was sent here from the Contact form
+
   const isContact = location.state?.from === 'contact';
 
   return (
     <div className="container text-center mt-5 mb-5">
       <div className="py-5 shadow-lg rounded bg-white">
-        {/* Dynamic Heading based on where the user came from */}
+        
         <h1 className="display-4 text-success">
           {isContact ? "🎉 Message Sent!" : "🎉 Order Placed!"}
         </h1>
@@ -17,7 +17,7 @@ function Success() {
           Thank you for choosing <strong>Dastkaar</strong>.
         </p>
         
-        {/* Dynamic Message */}
+        
         <p className="text-muted">
           {isContact 
             ? "We have received your inquiry and will email you back shortly." 
