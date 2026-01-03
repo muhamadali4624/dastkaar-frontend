@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function Contact() {
   const navigate = useNavigate();
 
-  // 1. Setup State
+  
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -13,12 +13,12 @@ function Contact() {
 
   const [loading, setLoading] = useState(false);
 
-  // 2. Sync input typing with state
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // 3. The Submit Function
+  //  Submit Function
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);

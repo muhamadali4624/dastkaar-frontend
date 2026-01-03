@@ -19,7 +19,7 @@ function Home() {
         {wallets.map(w => (
           <div className="col-md-4 mb-4" key={w.id}>
             <div className="card border-0 shadow-sm h-100">
-              {/* CLICKABLE IMAGE */}
+              
               <Link to={`/product/${w.id}`}>
                 <img 
                   src={w.img} 
@@ -28,7 +28,7 @@ function Home() {
                   style={{
                     height: '250px', 
                     objectFit: 'cover',
-                    transition: 'transform 0.3s ease' // Smooth zoom effect
+                    transition: 'transform 0.3s ease' 
                   }} 
                 />
               </Link>
@@ -46,4 +46,4 @@ function Home() {
   );
 }
 
-export default Home; // This is very important!
+export default Home; 

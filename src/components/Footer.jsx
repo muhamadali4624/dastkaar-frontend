@@ -59,11 +59,11 @@ function Footer() {
               &copy; {new Date().getFullYear()} DASTKAAR LEATHER STUDIOS.
             </p>
           </div>
-          <div className="col-md-6 text-center text-md-end">
+          {/* <div className="col-md-6 text-center text-md-end">
             <p className="small text-light opacity-50 mb-0">
               Made with ❤️ by <a href="https://codemarkaz.com" target="_blank" rel="noreferrer" className="text-gold text-decoration-none fw-bold" style={{color: '#d4af37'}}>codemarkaz.com</a>
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

@@ -11,7 +11,7 @@ function ProductDetail() {
 
 
 
-  // --- 1. STATES ---
+  
   const navigate = useNavigate();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,7 +46,7 @@ function ProductDetail() {
 
   
 
-  // loading state for API fetch
+  
 
   const [stock, setStock] = useState(null); 
 
@@ -56,20 +56,20 @@ function ProductDetail() {
 
 useEffect(() => {
   setIsLoading(true);
-  setStock(null); // Reset stock to null so it doesn't default to 0 immediately
+  setStock(null); 
 
   if (['1', '2', '3'].includes(id)) {
     fetch(`http://127.0.0.1:8000/api/products/${id}`)
       .then(res => res.json())
       .then(data => {
-        // Ensure you are using stock_quantity as defined in your DB structure
+        
         const quantity = data.stock_quantity; 
         setStock(Number(quantity)); 
         setIsLoading(false);
       })
       .catch((err) => {
         console.error("Fetch error:", err);
-        setStock(0); // Only set to 0 if the fetch actually fails
+        setStock(0); // 
         setIsLoading(false);
       });
   } else {
@@ -83,7 +83,7 @@ useEffect(() => {
 const isOutOfStock = stock !== null && stock <= 0;
 
 
-  // --- 2. LOGIC FOR TITLES & FIXED COLORS ---
+
 
   let productTitle = "Dastkaar Edition";
 
@@ -113,19 +113,19 @@ const isOutOfStock = stock !== null && stock <= 0;
 
 
 
-  // --- 3. PRICE CALCULATION ---
+  
 
   const basePrice = 4000;
 
   const extraPrice = extra === 'Magnet' ? 500 : (extra === 'Button' ? 200 : extra === 'Vault' ? 800 : 0);
 
-  // Ensured packaging is treated as a Number to avoid string concatenation
+  
 
   const totalPrice = basePrice + extraPrice + Number(packaging);
 
 
 
-  // --- 4. INPUT HANDLERS ---
+  
 
   const handleInputChange = (e) => {
 
@@ -165,13 +165,12 @@ const isOutOfStock = stock !== null && stock <= 0;
 
 
 
-  // --- 5. FINALIZE ORDER ---
-// --- 5. FINALIZE ORDER ---
+  // --- FINALIZE ORDER ---
   const finalizeOrder = () => {
     if (!validateForm()) return;
-    setIsSubmitting(true); // Show "Processing..."
+    setIsSubmitting(true); 
 
-    // Define the data object to send to Laravel
+
     const finalData = {
       customer_name: customerName,
       email: shippingDetails.email,
@@ -204,24 +203,24 @@ const isOutOfStock = stock !== null && stock <= 0;
       alert("✅ Order Placed Successfully!");
       setShowModal(false);
       
-      // AUTO-REFRESH STOCK: Fetch the new stock count from DB immediately
+      // Fetch the new stock count from DB 
       return fetch(`http://127.0.0.1:8000/api/products/${id}`);
     })
     .then(res => res.json())
     .then(data => {
-      // This will automatically change the button to "OUT OF STOCK" if quantity reached 0
+      // automatically change the button to "OUT OF STOCK" if quantity reached 0
       setStock(Number(data.stock_quantity)); 
     })
     .then(() => {
   setShowModal(false);
-  navigate('/success'); // Smooth transition to the thank you page
+  navigate('/success'); // transition to the thank you page
 })
     .catch((err) => {
       console.error(err);
       alert("❌ Submission Failed!");
     })
     .finally(() => {
-      setIsSubmitting(false); // Hide "Processing..."
+      setIsSubmitting(false); 
     });
   };
 
@@ -254,7 +253,7 @@ const isOutOfStock = stock !== null && stock <= 0;
 
 
 
-  // --- LOADING RENDER ---
+  // --- loading screen ---
 
   if (isLoading) {
 
@@ -282,7 +281,7 @@ const isOutOfStock = stock !== null && stock <= 0;
 
       <div className="row">
 
-        {/* LEFT SIDE: Media Section */}
+        {/* Media Section */}
 
         <div className="col-md-6">
 
@@ -324,7 +323,7 @@ const isOutOfStock = stock !== null && stock <= 0;
 
 
 
-        {/* RIGHT SIDE: Customization */}
+        {/* customization */}
 
         <div className="col-md-6">
 
@@ -519,10 +518,10 @@ const isOutOfStock = stock !== null && stock <= 0;
 
 
       <div><h5 className="fw-bold mb-3">🎬 Usage Videos</h5>
-  {/* Row starts here */}
+  
   <div className="row g-3"> 
     
-    {/* First Video */}
+    {/* videos */}
     <div className="col-md-6">
       <div className="ratio ratio-16x9 shadow-sm rounded overflow-hidden text-center bg-light">
         <video controls poster={`/images/thumb.jpeg`}>
@@ -532,7 +531,7 @@ const isOutOfStock = stock !== null && stock <= 0;
       </div>
     </div>
 
-    {/* Second Video */}
+    {/* 2nd Video */}
     <div className="col-md-6">
       <div className="ratio ratio-16x9 shadow-sm rounded overflow-hidden text-center bg-light">
         <video controls poster={`/images/wallet4_side.jpg`}>
@@ -543,7 +542,7 @@ const isOutOfStock = stock !== null && stock <= 0;
     </div>
 
   </div> 
-  {/* Row ends here */}
+  
 </div>
 
 

@@ -3,7 +3,7 @@ import React from 'react';
 function About() {
   return (
     <div className="container my-5">
-      {/* Hero Section */}
+      
       <div className="row mb-5 align-items-center">
         <div className="col-md-6">
           <h1 className="display-4 fw-bold mb-4">OUR HERITAGE</h1>
@@ -21,7 +21,7 @@ function About() {
         </div>
       </div>
 
-      {/* The 3 Pillars Section */}
+      
       <div className="row text-center mt-5">
         <div className="col-md-4">
           <div className="p-4 custom-box h-100">
@@ -46,7 +46,7 @@ function About() {
         </div>
       </div>
 
-      {/* Final Image Banner */}
+      
       <div className="mt-5">
          <img 
             src="images/about2.jpg" 

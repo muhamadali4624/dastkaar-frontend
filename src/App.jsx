@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-import ScrollToTop from './components/ScrollToTop.jsx'; // <--- ADD THIS LINE
+import ScrollToTop from './components/ScrollToTop.jsx'; 
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -17,7 +17,7 @@ function App() {
         <Header />
         
         <main className="flex-grow-1">
-        <ScrollToTop /> {/* Add this here */}
+        <ScrollToTop /> 
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
