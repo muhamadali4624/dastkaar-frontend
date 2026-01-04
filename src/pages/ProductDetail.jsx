@@ -7,19 +7,19 @@ function ProductDetail() {
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
-  // --- UI & Submission State ---
+ 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [stock, setStock] = useState(null);
 
-  // --- Product Selection State ---
+ 
   const [handOrientation, setHandOrientation] = useState('Righty');
   const [laserText, setLaserText] = useState('');
   const [walletColor, setWalletColor] = useState('Honey');
   const [extra, setExtra] = useState('None');
   const [packaging, setPackaging] = useState(0);
 
-  // --- Product Identity Logic ---
+  
   let productTitle = "Dastkaar Edition";
   let fixedColor = "";
 
@@ -34,7 +34,7 @@ function ProductDetail() {
     if (fixedColor) { setWalletColor(fixedColor); }
   }, [fixedColor]);
 
-  // --- Pricing Logic ---
+ 
   const basePrice = 4000;
   const extraPrice = extra === 'Magnet' ? 500 : (extra === 'Button' ? 200 : extra === 'Vault' ? 800 : 0);
   const totalPrice = basePrice + extraPrice + Number(packaging);
@@ -54,7 +54,7 @@ function ProductDetail() {
           setIsLoading(false);
         });
     } else {
-      setStock(999); // High stock for on-order items
+      setStock(999); 
       setIsLoading(false);
     }
   }, [id]);
@@ -92,10 +92,9 @@ function ProductDetail() {
   return (
     <div className="container mt-5 mb-5">
       <div className="row">
-        {/* Media Section */}
-        {/* Media Section */}
+       
         <div className="col-md-6">
-          {/* Main Large Image */}
+          
           <div className="card shadow-sm border-0 mb-3 bg-dark">
             <img 
               src={`/images/wallet${id}_main.jpg`} 
@@ -106,7 +105,7 @@ function ProductDetail() {
             />
           </div>
 
-          {/* Side and Inside Views Row */}
+          
           <div className="row g-2">
             <div className="col-6">
               <div className="card shadow-sm border-0 bg-dark">
@@ -138,12 +137,12 @@ function ProductDetail() {
             </div>
           </div>
         </div>
-        {/* Customization Section */}
+        
         <div className="col-md-6">
           <h1 className="fw-bold">{productTitle}</h1>
           <hr />
 
-          {/* Feature List with Conditional 14-Day Logic */}
+          
           <div className="mb-4">
             <p className="mb-1">🧵 Saddle stitched by hand</p>
             <p className="mb-1">🐄 Full-grain / 100% Original leather</p>
@@ -213,7 +212,7 @@ function ProductDetail() {
         <div className="row g-3">
           <div className="col-md-6">
             <div className="ratio ratio-16x9">
-              {/* Note: I added 'poster' here. Put your thumbnail image in /public/images/ */}
+              
               <video controls poster="/images/ready (2).png">
                 <source src="/videos/video3.mp4" />
               </video>
