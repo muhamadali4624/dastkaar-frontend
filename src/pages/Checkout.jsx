@@ -24,10 +24,10 @@ function Checkout() {
 
     const orderItem = cart[0];
 
-    // 1. Prepare Data (MUST include quantity for stock deduction)
+   
     const orderData = {
         product_id: orderItem.product_id,
-        quantity: orderItem.quantity, // Added this so Laravel can check stock
+        quantity: orderItem.quantity, 
         customer_name: formData.name,
         wallet_type: orderItem.wallet_type,
         color: orderItem.color,
@@ -42,7 +42,7 @@ function Checkout() {
     };
 
     try {
-        // 2. Send to Laravel
+        
         const response = await fetch('http://127.0.0.1:8000/api/orders', {
             method: 'POST',
             headers: { 
@@ -58,7 +58,7 @@ function Checkout() {
             alert("Order successful!");
             window.location.href = "/success";
         } else if (response.status === 422 || response.status === 400) {
-            // 3. This catches your "Only X left" error from OrderController
+            //  "Only eror left" 
             alert(`STOCK ERROR: ${data.message}`);
         } else {
             alert("Server Error: " + (data.message || "Unknown error"));
