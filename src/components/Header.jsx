@@ -24,7 +24,7 @@ function Header() {
             <li className="nav-item"><Link className="nav-link" to="/about">Our Story</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
             
-            <li className="nav-item ms-lg-3">
+            {/* <li className="nav-item ms-lg-3">
               <Link className="nav-link position-relative" to="/checkout">
                 <i className="bi bi-bag-fill fs-5"></i>
                 {cartCount > 0 && (
@@ -33,10 +33,10 @@ function Header() {
                   </span>
                 )}
               </Link>
-            </li>
-            <Link className="nav-link text-warning fw-bold small me-3 d-none d-md-block" to="/admin/login">
+            </li> */}
+            {/* <Link className="nav-link text-warning fw-bold small me-3 d-none d-md-block" to="/admin/login">
               <i className="bi bi-person-lock me-1"></i> SIGN-IN
-            </Link>
+            </Link> */}
           </ul>
         </div>
       </div>

@@ -143,14 +143,16 @@ function ProductDetail() {
           <hr />
 
           
-          <div className="mb-4">
+          <div className="mb-4">    
             <p className="mb-1">🧵 Saddle stitched by hand</p>
             <p className="mb-1">🐄 Full-grain / 100% Original leather</p>
+          
             {['4', '5', '6'].includes(id) ? (
               <p className="mb-1 text-dark fw-bold">⌛ These will be created on order: processing may take up to 14 days</p>
             ) : (
               <p className="mb-1">⌛ Handcrafted on order</p>
-            )}
+              
+            )}<p className="mb-1">🛡️30 Day Test Drive.</p>
           </div>
 
           {id === '6' && (
@@ -181,29 +183,29 @@ function ProductDetail() {
             )}
           </div>
 
-          <div className="mb-4">
+          {id === '6' && <div className="mb-4">
             <label className="fw-bold">Closure:</label>
             <select className="form-select" onChange={(e) => setExtra(e.target.value)}>
-              <option value="None">None</option>
-              <option value="Magnet">Magnet (+500)</option>
-              <option value="Button">Button (+200)</option>
+              {id === '6' && <option value="None">None</option>}
+              {id === '6' && <option value="Magnet">Magnet (+500)</option>}
+              {id === '6' && <option value="Button">Button (+200)</option>}
               {id === '6' && <option value="Vault">Vault Lock (+800)</option>}
             </select>
-          </div>
+          </div>}
 
           <div className="bg-dark text-white p-4 rounded shadow mb-4">
             <h3 className="text-warning fw-bold mb-3">{totalPrice} PKR</h3>
             
-            <button 
+            {/* <button 
               className={`btn btn-warning w-100 fw-bold py-3 mb-2 ${isOutOfStock ? 'disabled' : ''}`}
               onClick={handleAddToCart}
               disabled={isOutOfStock}
             >
               {isOutOfStock ? "OUT OF STOCK" : "ADD TO CART"}
-            </button>
+            </button> */}
 
             <button className="btn btn-success w-100 fw-bold py-3" onClick={orderViaWhatsApp} style={{ backgroundColor: '#25D366', border: 'none' }}>
-              ORDER VIA WHATSAPP
+              SEND ORDER
             </button>
           </div>
         </div>

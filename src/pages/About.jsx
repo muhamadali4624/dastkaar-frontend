@@ -26,22 +26,22 @@ function About() {
         <div className="col-md-4">
           <div className="p-4 custom-box h-100">
             <h3 className="fw-bold">01</h3>
-            <h5 className="text-gold">RAW MATERIAL</h5>
-            <p>Ethically sourced leather selected for durability and natural aging.</p>
+            <h5 className="text-gold">FULL GRAIN LEATHER</h5>
+            <p>Ethically sourced Vegetable tanned leather selected for developing natural patina with usage and enviormental exposure.</p>
           </div>
         </div>
         <div className="col-md-4">
           <div className="p-4 custom-box h-100">
             <h3 className="fw-bold">02</h3>
-            <h5 className="text-gold">SADDLE STITCH</h5>
-            <p>Hand-stitched for strength if one thread breaks, the stitch holds.</p>
+            <h5 className="text-gold">30 DAY TEST DRIVE</h5>
+            <p>There's only one catch, you actually have to try it out for a month before you decide. No judging a book by its cover.</p>
           </div>
         </div>
         <div className="col-md-4">
           <div className="p-4 custom-box h-100">
             <h3 className="fw-bold">03</h3>
-            <h5 className="text-gold">PERSONALIZED</h5>
-            <p>Your name, your style, your everyday companion.</p>
+            <h5 className="text-gold">Hand Tanned</h5>
+            <p>Each wallet is personally tanned one by one. Not Heavely Produced <br />(Imperfections expected )</p>
           </div>
         </div>
       </div>

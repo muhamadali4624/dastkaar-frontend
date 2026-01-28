@@ -13,7 +13,7 @@ function Home() {
   return (
     <div className="container mt-5">
       <h2 className="text-center mb-5 fw-dark">Dastkaar Signature Series</h2>
-      <h3 className="text-center mb-5 fw-light">Premium Leather Wallets,Handmade In Pakistan Built For Everyday Carry.</h3>
+      <h3 className="text-center mb-5 fw-light">Premium Leather Wallets, Handmade In Pakistan <br />Built For Everyday Carry.</h3>
       
       <div className="row">
         {wallets.map(w => (

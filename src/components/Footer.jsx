@@ -7,10 +7,10 @@ function Footer() {
         <div className="row">
           {/* Brand Column */}
           <div className="col-md-4 mb-4">
-            <h4 className="fw-bold text-gold mb-3" style={{color: '#d4af37'}}>DASTKAAR</h4>
+            <h4 className="fw-bold text-gold mb-3" style={{color: '#d4af37'}}>DASTKAAR<small>.co</small> </h4>
             <p className="text-light opacity-75 small">
-              Handcrafting premium leather goods in Pakistan since 2023. 
-              We preserve the art of traditional saddle-stitching.
+              Handcrafting premium leather goods in Pakistan. 
+              Preserving the art of traditional Craftmanship .
             </p>
           </div>
 
@@ -19,7 +19,7 @@ function Footer() {
             <h6 className="text-uppercase fw-bold mb-3 text-gold" style={{color: '#d4af37'}}>Quick Links</h6>
             <ul className="list-unstyled">
               <li className="mb-2"><Link to="/" className="text-light text-decoration-none small opacity-75">Shop All</Link></li>
-              <li className="mb-2"><Link to="/about" className="text-light text-decoration-none small opacity-75">Artisan Story</Link></li>
+              <li className="mb-2"><Link to="/about" className="text-light text-decoration-none small opacity-75">Art Story</Link></li>
               <li className="mb-2"><Link to="/contact" className="text-light text-decoration-none small opacity-75">Support</Link></li>
             </ul>
           </div>
@@ -31,9 +31,11 @@ function Footer() {
             {/* Social Logos */}
             <div className="d-flex justify-content-md-end gap-3 mb-4 fs-4">
               <a href="https://www.instagram.com/dastkaar.co/" target="_blank" rel="noreferrer" className="text-light opacity-75"><i className="bi bi-instagram"></i></a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="text-light opacity-75"><i className="bi bi-facebook"></i></a>
+              <a href="https://www.facebook.com/share/1FtfyVby3S/" target="_blank" rel="noreferrer" className="text-light opacity-75"><i className="bi bi-facebook"></i></a>
               <a href="https://www.linkedin.com/company/dastkaarco/" target="_blank" rel="noreferrer" className="text-light opacity-75"><i className="bi bi-linkedin"></i></a>
-            </div>
+              <a href="https://x.com/dastkaarco" target="_blank" rel="noreferrer" className="text-light opacity-75"><i className="bi bi-twitter-x"></i></a>
+            
+</div>
 
             {/* Email Link */}
             <p className="mb-1">
@@ -59,11 +61,11 @@ function Footer() {
               &copy; {new Date().getFullYear()} DASTKAAR LEATHER STUDIOS.
             </p>
           </div>
-          {/* <div className="col-md-6 text-center text-md-end">
+          <div className="col-md-6 text-center text-md-end">
             <p className="small text-light opacity-50 mb-0">
               Made with ❤️ by <a href="https://codemarkaz.com" target="_blank" rel="noreferrer" className="text-gold text-decoration-none fw-bold" style={{color: '#d4af37'}}>codemarkaz.com</a>
             </p>
-          </div> */}
+          </div>
         </div>
       </div>
     </footer>
