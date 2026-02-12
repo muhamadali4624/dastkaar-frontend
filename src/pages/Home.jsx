@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
 const wallets = [
-  { id: 1, name: "Honey Oak", price: "From 4000", img: "images/wallet1_main.png" },
-  { id: 2, name: "Old Brew", price: "From 4000", img: "images/wallet2_main.png" },
-  { id: 3, name: "Obsidian Black", price: "From 4000", img: "images/wallet3_main.png" },
+  { id: 1, name: "Honey Oak", price: "From 4000", img: "images/wallet1_main.jpg" },
+  { id: 2, name: "Old Brew", price: "From 4000", img: "images/wallet2_main.jpg" },
+  { id: 3, name: "Obsidian Black", price: "From 4000", img: "images/wallet3_main.jpg" },
   { id: 4, name: "The Lefty", price: "From 4000", img: "images/wallet4_main.jpg" },
   { id: 5, name: "The Vault", price: "From 4000", img: "images/wallet5_main.jpg" },
   { id: 6, name: "Customize", price: "From 4500" , img: "images/wallet6_main.jpg" },
