@@ -2,27 +2,18 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useCart } from '../CartContext';
 
-function ProductDetail() {
+function ProductDetail({ setShowPopup, showPrice }) {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { addToCart } = useCart();
-
- 
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [stock, setStock] = useState(null);
-
- 
-  const [handOrientation, setHandOrientation] = useState('Righty');
-  const [laserText, setLaserText] = useState('');
+  
   const [walletColor, setWalletColor] = useState('Honey');
   const [extra, setExtra] = useState('None');
-  const [packaging, setPackaging] = useState(0);
 
-  
   let productTitle = "Dastkaar Edition";
   let fixedColor = "";
 
+  // Product Logic
   if (id === '1') { productTitle = "DASTKAAR Signature Wallet"; fixedColor = "Honey Oak"; }
   else if (id === '2') { productTitle = "DASTKAAR Signature Wallet"; fixedColor = "Old Brew"; }
   else if (id === '3') { productTitle = "DASTKAAR Signature Wallet"; fixedColor = "Obsidian Black"; }
@@ -31,56 +22,13 @@ function ProductDetail() {
   else if (id === '6') { productTitle = "Customize from DASTKAAR"; }
 
   useEffect(() => {
-    if (fixedColor) { setWalletColor(fixedColor); }
+    if (fixedColor) setWalletColor(fixedColor);
+    setIsLoading(false);
   }, [fixedColor]);
 
- 
-  const basePrice = 4000;
+  const basePrice = 2999;
   const extraPrice = extra === 'Magnet' ? 500 : (extra === 'Button' ? 200 : extra === 'Vault' ? 800 : 0);
-  const totalPrice = basePrice + extraPrice + Number(packaging);
-
-  // --- Fetch Stock ---
-  useEffect(() => {
-    setIsLoading(true);
-    if (['1', '2', '3'].includes(id)) {
-      fetch(`http://127.0.0.1:8000/api/products/${id}`)
-        .then(res => res.json())
-        .then(data => {
-          setStock(Number(data.stock_quantity));
-          setIsLoading(false);
-        })
-        .catch(() => {
-          setStock(0);
-          setIsLoading(false);
-        });
-    } else {
-      setStock(999); 
-      setIsLoading(false);
-    }
-  }, [id]);
-
-  const isOutOfStock = stock !== null && stock <= 0;
-
-  const handleAddToCart = () => {
-    if (isOutOfStock) {
-      alert("This item is currently out of stock!");
-      return;
-    }
-
-    const item = {
-      product_id: parseInt(id), 
-      wallet_type: id === '4' ? `${productTitle} (${handOrientation})` : productTitle,
-      color: walletColor,
-      extra_feature: extra,
-      laser_name: id === '6' ? laserText : 'None',
-      total_price: totalPrice,
-      image: `/images/wallet${id}_main.jpg`,
-      quantity: 1
-    };
-
-    addToCart(item, stock);
-    alert("Added to bag!");
-  };
+  const totalPrice = basePrice + extraPrice;
 
   const orderViaWhatsApp = () => {
     const message = `*INQUIRY - DASTKAAR*%0A*Product:* ${productTitle}%0A*Color:* ${walletColor}%0A*Price:* ${totalPrice} PKR`;
@@ -92,142 +40,38 @@ function ProductDetail() {
   return (
     <div className="container mt-5 mb-5">
       <div className="row">
-       
         <div className="col-md-6">
-          
-          <div className="card shadow-sm border-0 mb-3 bg-dark">
-            <img 
-              src={`/images/wallet${id}_main.jpg`} 
-              className="img-fluid rounded" 
-              alt={`${productTitle} Main`} 
-              style={{ maxHeight: '500px', objectFit: 'contain' }} 
-              onError={(e) => { e.target.src = "https://via.placeholder.com/600x400?text=Main+View"; }} 
-            />
-          </div>
-
-          
-          <div className="row g-2">
-            <div className="col-6">
-              <div className="card shadow-sm border-0 bg-dark">
-                <img 
-                  src={`/images/wallet${id}_side.jpg`} 
-                  className="img-fluid rounded" 
-                  alt={`${productTitle} Side`} 
-                  style={{  }}
-                  onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Side+View"; }}
-                />
-                <div className="card-img-overlay d-flex align-items-end p-1">
-                  <span className="badge bg-dark opacity-75 small">{productTitle}</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="card shadow-sm border-0 bg-dark">
-                <img 
-                  src={`/images/wallet${id}_inside.jpg`} 
-                  className="img-fluid rounded" 
-                  alt={`${productTitle} Inside`} 
-                  style={{  }}
-                  onError={(e) => { e.target.src = "https://via.placeholder.com/300x200?text=Inside+View"; }}
-                />
-                <div className="card-img-overlay d-flex align-items-end p-1">
-                  <span className="badge bg-dark opacity-75 small">{productTitle}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img src={`/images/wallet${id}_main.jpg`} className="img-fluid rounded bg-dark" alt={productTitle} />
         </div>
         
         <div className="col-md-6">
           <h1 className="fw-bold">{productTitle}</h1>
           <hr />
-
           
-          <div className="mb-4">    
-            <p className="mb-1">🧵 Saddle stitched by hand</p>
-            <p className="mb-1">🐄 Full-grain / 100% Original leather</p>
-          
-            {['4', '5', '6'].includes(id) ? (
-              <p className="mb-1 text-dark fw-bold">⌛ These will be created on order: processing may take up to 14 days</p>
-            ) : (
-              <p className="mb-1">⌛ Handcrafted on order</p>
-              
-            )}<p className="mb-1">🛡️30 Day Test Drive.</p>
-          </div>
-
-          {id === '6' && (
-            <div className="mb-4 p-3 border border-warning rounded bg-light">
-              <label className="form-label fw-bold">Laser Engraving Name:</label>
-              <input type="text" className="form-control" placeholder="Enter name" value={laserText} onChange={(e) => setLaserText(e.target.value)} />
-            </div>
-          )}
-
-          {id === '6' && (
-            <div className="mb-4">
-              <label className="fw-bold">Hand Orientation:</label>
-              <select className="form-select" value={handOrientation} onChange={(e) => setHandOrientation(e.target.value)}>
-                <option value="Righty">Righty (Standard)</option>
-                <option value="Lefty">Lefty</option>
-              </select>
-            </div>
-          )}
-
           <div className="mb-4">
-            <label className="fw-bold">Leather Color:</label>
-            {['1', '2', '3'].includes(id) ? <p className="text-primary fw-bold">{fixedColor}</p> : (
-              <select className="form-select" value={walletColor} onChange={(e) => setWalletColor(e.target.value)}>
-                <option value="Honey">Honey</option>
-                <option value="Brown">Brown</option>
-                <option value="Black">Black</option>
-              </select>
-            )}
+            <p>🧵 Saddle stitched by hand</p>
+            <p>🐄 100% Original leather</p>
+            <p>🛡️ 30 Day Test Drive</p>
           </div>
 
-          {id === '6' && <div className="mb-4">
-            <label className="fw-bold">Closure:</label>
-            <select className="form-select" onChange={(e) => setExtra(e.target.value)}>
-              {id === '6' && <option value="None">None</option>}
-              {id === '6' && <option value="Magnet">Magnet (+500)</option>}
-              {id === '6' && <option value="Button">Button (+200)</option>}
-              {id === '6' && <option value="Vault">Vault Lock (+800)</option>}
-            </select>
-          </div>}
-
-          <div className="bg-dark text-white p-4 rounded shadow mb-4">
-            <h3 className="text-warning fw-bold mb-3">{totalPrice} PKR</h3>
-            
-            {/* <button 
-              className={`btn btn-warning w-100 fw-bold py-3 mb-2 ${isOutOfStock ? 'disabled' : ''}`}
-              onClick={handleAddToCart}
-              disabled={isOutOfStock}
-            >
-              {isOutOfStock ? "OUT OF STOCK" : "ADD TO CART"}
-            </button> */}
+          <div className="bg-dark text-white p-4 rounded shadow mb-4 text-center">
+            {!showPrice ? (
+              <div className="mb-3">
+                <p className="text-secondary small">Premium Craftsmanship Inside</p>
+                <button className="btn btn-outline-warning fw-bold py-2 px-4" onClick={() => setShowPopup(true)}>
+                  REVEAL PRICE
+                </button>
+              </div>
+            ) : (
+              <div className="mb-3">
+                <h2 className="fw-bold text-success">Rs. {totalPrice}</h2>
+                <p className="text-muted small">Handcrafted just for you</p>
+              </div>
+            )}
 
             <button className="btn btn-success w-100 fw-bold py-3" onClick={orderViaWhatsApp} style={{ backgroundColor: '#25D366', border: 'none' }}>
-              SEND ORDER
+              ORDER VIA WHATSAPP
             </button>
-          </div>
-        </div>
-      </div>
-      <div className="mt-5 mb-5 p-4 bg-dark rounded shadow">
-        <div className="row g-3">
-          <div className="col-md-6">
-            <div className="ratio ratio-16x9">
-              
-              <video controls poster="/images/ready (2).png">
-                <source src="/videos/video3.mp4" />
-              </video>
-            </div>
-            <p className="text-white mt-2 small text-center">Flap Memory</p>
-          </div>
-          <div className="col-md-6">
-            <div className="ratio ratio-16x9">
-              <video controls poster="/images/wallet1_side.jpg">
-                <source src="/videos/video2.mp4" />
-              </video>
-            </div>
-            <p className="text-white mt-2 small text-center">How To Use?</p>
           </div>
         </div>
       </div>
