@@ -296,7 +296,7 @@ That’s why our pricing reflects value, durability, and authenticity not mass p
 
           {/* Final Price Highlight */}
           <div className="bg-dark text-center text-warning p-3 rounded shadow-sm">
-            <small className="text-white-50 d-block mb-1">FINAL TOTAL</small>
+            <small className="text-white-50 d-block mb-1">With Free Dilivery</small>
             <h2 className="fw-bold mb-0">{totalPrice} PKR</h2>
           </div>
 
